@@ -1,0 +1,51 @@
+<div class="navbar">
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <img style="margin-left: 5px; height: 45px;" src="/assets/icono-perfil.png" alt="Imagen de perfil">
+        <p style="color: white; font-family:'Kalam', cursive;">¡Bienvenido/a {{role}}, {{name}}!</p>
+        <div style="border-right: 1px solid white; color: #003500">---</div>
+        <a style="text-decoration: none;" href="/products"><p style="margin-left: 15px; font-family: 'Kalam', cursive; font-size: 18px; color: white;">Home</p></a>
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <a style="text-decoration: none;" href="/carts/64af3f6d46734d2a6496fd5e"><img style="margin-right: 15px; height: 35px;" src="/assets/carro-de-la-compra.png" alt="imagen-carrito"></a>
+        <div style="border-left: 1px solid white; color: #003500">--</div>
+        {{#if checkingRole}}
+            <a href="/realTimeProducts" style="text-decoration: none; font-family: 'Kalam', cursive; margin-right: 10px; color: white; font-weight: bold;">POST/DELETE products</a>
+        {{/if}}
+        <div style="border-left: 1px solid white; color: #003500">--</div>
+        <a href="/logout" style="text-decoration: none; font-family: 'Kalam', cursive; margin-right: 15px; color: white; font-weight: bold;">Logout</a>
+    </div>
+</div>
+<h2 class="mainTitle">Productos en tiempo real</h2>
+<div class="formAndProductsContainer">
+    <form class="formContainer">
+        <h3 class="tituloForm">Ingrese un producto</h3>
+        <label class="formLabel" for="title">Título: <input type="text" name="title" id="title"></label>
+        <label class="formLabel" for="description">Descripción: <input type="text" name="description" id="description"></label>
+        <label class="formLabel" for="price">Precio: <input type="text" name="price" id="price"></label>
+        <label class="formLabel" for="code">Código: <input type="text" name="code" id="code"></label>
+        <label class="formLabel" for="stock">Stock: <input type="text" name="stock" id="stock"></label>
+        <label class="formLabel" for="category">Categoría: <input type="text" name="category" id="category"></label>
+        <button class="buttonForm" id="createProduct">Crear Producto</button>
+    </form>
+    
+    <div class="containerRealTimeProducts" id="realTimeProductsBox">
+        {{#each products}}
+        <div class="containerProductWithId">
+            <button class="deleteButtonProduct" onclick="deleteProduct('{{this._id}}')">Eliminar</button>
+            <div class="containerProductInfo">
+                <h1>{{this.title}}</h1>
+                <p class="estiloTexto"><b>Descripción:</b> {{this.description}}</p>
+                <p class="estiloTexto"><b>Código:</b> {{this.code}}</p>
+                <p class="estiloTexto"><b>Stock:</b> {{this.stock}}</p>
+                <p class="estiloTexto"><b>Precio:</b> {{this.price}}</p>
+                <p class="estiloTexto"><b>Categoria:</b> {{this.category}}</p>
+                <p class="estiloTexto"><b>ID:</b> {{this._id}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>

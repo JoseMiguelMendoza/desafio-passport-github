@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
+
+/* Clases generales */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url('../assets/fondo-imagen-backend.jfif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 40% 60%;
+}
+
+/* Clase de navbar y footer generales en ciertas vistas. */
+
+.navbar{
+    background-color: #003500;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.footer{
+    margin-top: 10px;
+    background-color: #003500;
+    color: white;
+    font-family: 'Kalam', cursive;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100px;
+}
+
+/* Clases para el home.handlebars */
+
+.mainTitle{
+    margin: 20px 0;
+    text-align: center;
+    font-family: 'Kalam', cursive;
+    font-size: 40px;
+    color: #a39e82;
+    text-decoration: underline;
+}
+
+.generalContainer{
+    background-color: #e6e2df;
+    border-radius: 35px;
+    margin: 0 250px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0.7;
+    padding: 0;
+}
+
+.estiloTexto{
+    font-family: 'Kalam', cursive;
+}
+
+.containerProductWithId{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    border-bottom: 1px solid white;
+    padding: 10px;
+}
+
+.containerProductWithId:last-child{
+    border-bottom: 0;
+}
+
+
+.containerProductInfo{
+    padding: 10px 15px;
+    width: 90%;
+    align-self: center;
+}
+
+
+/* Clases para el realTimeProducts.handlebars */
+
+.formAndProductsContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 15px;
+    width: 300px;
+    height: 365px;
+    padding: 15px;
+    border: 4.5px solid rgb(175, 182, 151);
+    position: sticky;
+    top: 103.5px;
+    background-image: url('../assets/fondo-formulario.jpg');
+    background-position: 50% 50%;
+    border-radius: 10px;
+}
+
+.tituloForm{
+    font-family: 'Kalam', cursive;
+    text-align: center;
+    margin-bottom: 10px;
+    align-self: center;
+    font-size: 23px;
+    text-decoration: underline;
+    color: rgb(85, 85, 85);
+}
+
+.formLabel{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-family: 'Kalam', cursive;
+    font-weight: bold;
+    color: white;
+}
+
+.buttonForm{
+    width: 130px;
+    height: 35px;
+    margin-top: 10px;
+    border-radius: 15px;
+    background-color: rgb(44, 160, 69);
+    color: rgb(255, 255, 255);
+    align-self: center;
+    font-family: 'Kalam', cursive;
+    font-size: 15px;
+}
+
+.containerRealTimeProducts{
+    background-color: #e6e2df;
+    border-radius: 35px;
+    margin: 0 40px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0.7;
+    padding: 0;
+    width: 60%;
+}
+
+.deleteButtonProduct{
+    align-self: center;
+    height: 35px;
+    width: 80px;
+    background-color: red;
+    color: white;
+    border-color: black;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+/* Clases para chat.handlebars */
+
+.containerChat{
+    margin: 35px;
+}
+
+.userAndInput{
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.inputChat{
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Clases para products.handlebars */
+
+.positionTitle{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.productsTitle{
+    font-family: 'Kalam', cursive;
+    text-align: center;
+    width: 80%;
+    background-color: #003500;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.tableContainer{
+    display: flex;
+    justify-content: center;
+    font-family: 'Kalam', cursive;
+    min-height: 686px;
+}
+
+table{
+    width: 80%;
+    text-align: center;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 15px;
+    border-spacing: 0;
+}
+
+table thead tr{
+    background-color: #003500;
+    color: white;
+    height: 15px;
+    overflow: hidden;
+}
+
+table thead tr th{
+    padding: 10px
+}
+
+table thead tr th:first-child{
+    border-top-left-radius: 15px;
+}
+table thead tr th:last-child{
+    border-top-right-radius: 15px;
+}
+
+table tbody tr:last-child td:first-child{
+    border-bottom-left-radius: 15px;
+}
+
+table tbody tr:last-child td:last-child{
+    border-bottom-right-radius: 15px;
+}
+
+table tbody tr td{
+    padding: 10px;
+}
+
+table tbody tr:nth-child(odd){
+    background-color: #fff5b9;
+}
+
+table tbody tr:nth-child(even){
+    background-color: rgb(67, 148, 64);
+    color: white;
+}
+
+.buttonsContainer{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.boxA {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #003500;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.boxA a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Kalam', cursive;
+}
+
+.buttonAddToCart{
+    width: 130px;
+    height: 35px;
+    text-align: center;
+    background-color: #003500;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Kalam', cursive;
+    cursor: pointer;
+}
+
+/* Clases para cart.handlebars */
+.cartBoxContainer{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.cartIdBox{
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(34, 77, 33);
+    text-align: center;
+    font-family: 'Kalam', cursive;
+    font-size: 30px;
+    color: white;
+    width: 80%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+div div li{
+    list-style: none;
+}
+
+.productsBox{
+    width: 80%;
+    text-align: center;
+    font-family: 'Kalam', cursive;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(226, 226, 226);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.containerProduct{
+    display: flex;
+    justify-content: space-around;
+    padding: 45px;
+    border-top: 1px solid grey;
+}
+
+.containerMessage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+div div .containerProduct:first-child{
+    border-top: 0;
+}
+
+.fontSizePropertiesProduct{
+    font-size: 20px;
+}
+
+.btnComprarContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.btnComprar{
+    width: 140px;
+    height: 45px;
+    text-align: center;
+    background-color: #003500;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Kalam', cursive;
+    cursor: pointer;
+}
+
+.btnDeleteProdFromCart{
+    width: 140px;
+    height: 45px;
+    text-align: center;
+    background-color: #c00000;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Kalam', cursive;
+    cursor: pointer;
+}
+
+/* Clases para login.handlebars */
+
+#formularioLogin {
+    min-height: 809px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputsAndButtonLogin{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    height: 305px;
+    background-color: rgba(255, 252, 226, 0.822);
+}
+
+#formularioLogin div h1{
+    text-align: center;
+    font-family: 'Kalam', cursive;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    color: white;
+    background-color: #003500;
+}
+
+#formularioLogin div label{
+    font-family: 'Kalam', cursive;
+    margin-bottom: 10px;
+}
+
+#formularioLogin div label input{
+    border-radius: 10px;
+    height: 30px;
+    width: 510px;
+    padding: 10px;
+}
+
+#formularioLogin div div button{
+    text-align: center;
+    margin-top: 10px;
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 200px;
+    cursor: pointer;
+    font-family: 'Kalam', cursive;
+    font-weight: bold;
+    background-color: #003500;
+    color: white;
+}
+
+.buttonBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerViewA{
+    text-decoration: none;
+    margin: 10px 0;
+    color: rgb(0, 0, 0);
+    font-family: 'Kalam', cursive;
+    font-weight: bold;
+}
+
+/* Clases para register.handlebars */
+
+.formularioRegister{
+    min-height: 809px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerRegister{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    height: 496px;
+    background-color: rgba(255, 252, 226, 0.822);
+}
+
+.containerRegister h1{
+    text-align: center;
+    font-family: 'Kalam', cursive;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    color: white;
+    background-color: #003500;
+}
+
+.containerRegister label{
+    font-family: 'Kalam', cursive;
+    margin-bottom: 10px;
+}
+
+.containerRegister label input {
+    border-radius: 10px;
+    height: 30px;
+    width: 510px;
+    padding: 10px;
+}
+
+.containerRegister .buttonBox button{
+    text-align: center;
+    margin-top: 5px;
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 200px;
+    cursor: pointer;
+    font-family: 'Kalam', cursive;
+    font-weight: bold;
+    background-color: #003500;
+    color: white;
+}
+
+/* Clase para userError.handlebars */
+
+.errorMessage{
+    height: 890px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Kalam', cursive;
+    font-weight: bold;
+    font-size: 50px;
+    gap: 10px;
+}
+
+.errorMessage h1 {
+    background-color: #db3e3e;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.errorMessage div{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c00000;
+    border-radius: 10px;
+    padding: 15px;
+    min-height: 188px;
+}

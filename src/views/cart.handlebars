@@ -1,0 +1,48 @@
+<div class="navbar">
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <img style="margin-left: 5px; height: 45px;" src="/assets/icono-perfil.png" alt="Imagen de perfil">
+        <p style="color: white; font-family:'Kalam', cursive;">¡Bienvenido/a {{role}}, {{name}}!</p>
+        <div style="border-right: 1px solid white; color: #003500">---</div>
+        <a style="text-decoration: none;" href="/products"><p style="margin-left: 15px; font-family: 'Kalam', cursive; font-size: 18px; color: white;">Home</p></a>
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <a style="text-decoration: none;" href="/carts/64af3f6d46734d2a6496fd5e"><img style="margin-right: 15px; height: 35px;" src="/assets/carro-de-la-compra.png" alt="imagen-carrito"></a>
+        {{#if checkingRole}}
+            <div style="border-left: 1px solid white; color: #003500">--</div>
+            <a href="/realTimeProducts" style="text-decoration: none; font-family: 'Kalam', cursive; margin-right: 10px; color: white; font-weight: bold;">POST/DELETE products</a>
+        {{/if}}
+        <div style="border-left: 1px solid white; color: #003500">--</div>
+        <a href="/logout" style="text-decoration: none; font-family: 'Kalam', cursive; margin-right: 15px; color: white; font-weight: bold;">Logout</a>
+    </div>
+</div>
+<div class="cartBoxContainer">
+    <div class="cartIdBox">
+        <p>Carrito ID: {{cid}}</p>
+    </div>
+</div>
+<div class="cartBoxContainer" style="margin-top: 0; min-height: 694px;">
+    <div class="productsBox">
+        {{#if products}}
+            {{#each products}}
+                <div class="containerProduct">
+                    <div class="fontSizePropertiesProduct"><b>Title:</b> {{this.product.title}}</div><div class="fontSizePropertiesProduct"><b>Category:</b> {{this.product.category}}</div><div class="fontSizePropertiesProduct"><b>Quantity:</b> {{this.quantity}}</div><div class="fontSizePropertiesProduct"><b>Price:</b> ${{this.product.price}}</div>
+                    <div><button class="btnDeleteProdFromCart" data-cart-id="{{@root.cid}}" data-product-id="{{this.product._id}}">Eliminar producto</button></div>
+                </div>
+            {{/each}}
+        {{else}}
+            <div class="containerMessage">
+                No hay productos en este carrito!
+            </div>
+        {{/if}}
+    </div>
+</div>
+<div class="btnComprarContainer">
+    <button class="btnComprar" onclick="finishBuying('{{cid}}')">Finalizar compra</button>
+</div>
+<footer class="footer">
+    ¡Gracias por visitarnos!
+</footer>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/cart.js"></script>

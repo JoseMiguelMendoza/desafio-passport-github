@@ -1,0 +1,67 @@
+<div class="navbar">
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <img style="margin-left: 5px; height: 45px;" src="/assets/icono-perfil.png" alt="Imagen de perfil">
+        <p style="color: white; font-family:'Kalam', cursive;">¡Bienvenido/a {{role}}, {{name}}!</p>
+        <div style="border-right: 1px solid white; color: #003500">---</div>
+        <a style="text-decoration: none;" href="/products"><p style="margin-left: 15px; font-family: 'Kalam', cursive; font-size: 18px; color: white;">Home</p></a>
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <a style="text-decoration: none;" href="/carts/64af3f6d46734d2a6496fd5e"><img style="margin-right: 15px; height: 35px;" src="/assets/carro-de-la-compra.png" alt="imagen-carrito"></a>
+        {{#if checkingRole}}
+            <div style="border-left: 1px solid white; color: #003500">--</div>
+            <a href="/realTimeProducts" style="text-decoration: none; font-family: 'Kalam', cursive; margin-right: 10px; color: white;">POST/DELETE products</a>
+        {{/if}}
+        <div style="border-left: 1px solid white; color: #003500">--</div>
+        <a href="/logout" style="text-decoration: none; font-family: 'Kalam', cursive; margin-right: 15px; color: white; font-weight: bold;">Logout</a>
+    </div>
+</div>
+<div class="positionTitle">
+    <h1 class="productsTitle">Productos a la venta</h1>
+</div>
+<div class="tableContainer" style="position: relative;">
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre del producto</th>
+                <th>Descripción</th>
+                <th>Stock</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th> - </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+            <tr>
+                <td>{{this.code}}</td>
+                <td>{{this.title}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.stock}}</td>
+                <td>{{this.category}}</td>
+                <td>{{this.price}}</td>
+                <td><button class="buttonAddToCart" data-product-id="{{this._id}}">Agregar al carrito</button></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+<div class="buttonsContainer">
+    {{#if paginateInfo.hasPrevPage}}
+    <div class="boxA">
+        <a href="{{paginateInfo.prevLink}}">Anterior</a>
+    </div>
+    {{/if}}
+    {{#if paginateInfo.hasNextPage}}
+    <div class="boxA">
+        <a href="{{paginateInfo.nextLink}}">Siguiente</a>
+    </div>   
+    {{/if}}
+</div>
+<footer class="footer">
+    ¡Gracias por visitarnos!
+</footer>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/products.js"></script>
